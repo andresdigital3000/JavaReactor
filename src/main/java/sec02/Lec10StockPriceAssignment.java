@@ -28,6 +28,7 @@ public class Lec10StockPriceAssignment {
                     public void onNext(Integer price) {
                         System.out.println(LocalDateTime.now() + " : Price : " + price);
                         if(price > 110 || price < 90){
+                            System.out.println("price exceed limits. We are going to get out:");
                             this.subscription.cancel();
                             latch.countDown();
                         }
